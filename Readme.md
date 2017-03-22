@@ -1,7 +1,5 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url]
 
-* Студент: [Сергей Рубец](https://up.htmlacademy.ru/javascript/9/user/41580).
-
 ---
 
 _Не удаляйте и не обращайте внимание на папки и файлы:_<br>
