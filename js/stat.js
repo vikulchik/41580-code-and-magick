@@ -16,4 +16,50 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillText('Список результатов:', 130, 60)
 
 
+    var max = -1;
+    var maxIndex = -1;
+
+    for (var i = 0 ; i < times.length; i++) {
+        var time = times[i];
+        if (time > max) {
+            max = time;
+            maxIndex = i;
+        }
+    }
+
+    var max = Math.max.apply(Math, times);
+    var histogramHeight = 150;
+    var step = histogramHeight / max;
+
+    var barWidth = 40;
+    var indent = 50;
+    var initialX = 150;
+    var initialY = 250;
+
+    ctx.textBaseline = 'top';
+
+
+
+    var getRandomColor = function(name) {
+
+        var name = names[i];
+
+        if (name == 'Вы') {
+            ctx.fillStyle = 'rgba(255, 0, 0, 1.0)';
+        }
+
+        else {
+            ctx.fillStyle = 'rgba(0, 0, 255, '+ Math.random()+')';
+        }
+    }
+
+    for (var i = 0; i < times.length; i++) {
+
+        getRandomColor(name);
+        ctx.fillRect(initialX + (barWidth+indent) * i, initialY, barWidth, - times[i] * step);
+
+        ctx.fillStyle = 'rgba(0, 0, 0, 1)';
+        ctx.fillText(parseInt(times[i]), initialX + (barWidth+indent) * i, initialY - histogramHeight - 20 );
+        ctx.fillText(names[i], initialX + (barWidth+indent) * i, initialY + 5 );
+    }
 };
