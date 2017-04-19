@@ -31,7 +31,7 @@ window.renderStatistics = function (ctx, names, times) {
     var histogramHeight = 150;
     var step = histogramHeight / max;
 
-    var barWidth = 40;
+    var histogramWidth = 40;
     var indent = 50;
     var initialX = 150;
     var initialY = 250;
@@ -40,7 +40,7 @@ window.renderStatistics = function (ctx, names, times) {
 
 
 
-    var getRandomColor = function(name) {
+    var randomColor = function(name) {
 
         var name = names[i];
 
@@ -55,11 +55,11 @@ window.renderStatistics = function (ctx, names, times) {
 
     for (var i = 0; i < times.length; i++) {
 
-        getRandomColor(name);
-        ctx.fillRect(initialX + (barWidth+indent) * i, initialY, barWidth, - times[i] * step);
+        randomColor(name);
+        ctx.fillRect(initialX + (histogramWidth+indent) * i, initialY, histogramWidth, - times[i] * step);
 
         ctx.fillStyle = 'rgba(0, 0, 0, 1)';
-        ctx.fillText(parseInt(times[i]), initialX + (barWidth+indent) * i, initialY - histogramHeight - 20 );
-        ctx.fillText(names[i], initialX + (barWidth+indent) * i, initialY + 5 );
+        ctx.fillText(parseInt(times[i]), initialX + (histogramWidth+indent) * i, initialY - histogramHeight - 20 );
+        ctx.fillText(names[i], initialX + (histogramWidth+indent) * i, initialY + 5 );
     }
 };
